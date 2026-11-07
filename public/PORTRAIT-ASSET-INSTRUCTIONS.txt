@@ -1,0 +1,1 @@
+Add your actual portrait as src/assets/revanth-portrait.jpg (not public/). The supplied resume PDF did not include a portrait image, so no substitute photo is included.

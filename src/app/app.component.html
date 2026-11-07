@@ -1,0 +1,145 @@
+<main #stage class="site-shell" (pointermove)="onPointerMove($event)" (touchmove)="onTouchReveal($event)" (click)="revealEntirePage()" [class.torch-off]="!torchEnabled || pageRevealed" [class.page-revealed]="pageRevealed">
+  <div class="torch-darkness" aria-hidden="true"></div>
+  <div class="torch-glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+<a class="wordmark" href="#top" aria-label="Revanth Sai - Home">
+  <span class="brand-initials">RS</span>
+  <span class="brand-name">REVANTH SAI</span>
+</a>
+    <nav aria-label="Main navigation">
+      <a href="#work">WORK <i>03</i></a><a href="#about">ABOUT</a><a href="#experience">EXPERIENCE</a>
+    </nav>
+    <button class="nav-contact" (click)="openContact()">LET'S TALK <span>↗</span></button>
+  </header>
+
+  <section id="top" class="hero section-wrap">
+    <div class="hero-topline eyebrow"><span>PORTFOLIO / 2026</span><span>HYDERABAD, INDIA <b class="live-dot"></b></span></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="micro-label">ENGINEERING WITH INTENTION</p>
+        <h1 class="hero-title"><span class="line">RE<span class="outline">THINK</span></span><span class="line">THE <em>BUILD.</em></span></h1>
+        <div class="hero-bottom">
+          <p class="hero-description">I'm <strong>Revanth Sai Garigaboina</strong> — a full stack software engineer shaping dependable digital products across banking, fintech and business workflows.</p>
+          <a class="text-link" href="#work">EXPLORE SELECTED WORK <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="portrait-frame" #portraitFrame>
+          <div class="portrait-placeholder">
+            <img src="assets/revanth-portrait.jpg" alt="Portrait of Revanth Sai Garigaboina" class="portrait-image" />
+          </div>
+          <div class="portrait-stamp">JAVA<br>FULL STACK<br><b>ENGINEER</b></div>
+        </div>
+        <div class="side-index">01 — 04<br>SCROLL TO EXPLORE</div>
+      </div>
+    </div>
+    <div class="hero-footer hero-meta"><span>JAVA · SPRING BOOT · ANGULAR</span><span>4+ YEARS IN SOFTWARE ENGINEERING</span><span>SCROLL TO BEGIN ↓</span></div>
+  </section>
+
+  <section class="manifesto section-wrap" data-reveal>
+    <div class="section-kicker"><span>00 / POINT OF VIEW</span><span>BUILT TO BE USEFUL</span></div>
+    <p class="manifesto-copy">Good software is not just code that works. It's <span class="yellow-mark">clarity under complexity</span>, thoughtful systems, and details that make the experience feel effortless.</p>
+    <div class="manifesto-foot"><span>AN ENGINEERING MINDSET</span><span>LESS NOISE. MORE SIGNAL.</span></div>
+  </section>
+
+  <section id="work" class="work-section section-wrap">
+    <div class="section-heading" data-reveal><div><p class="micro-label">01 / SELECTED WORK</p><h2>BUILT IN<br><span class="outline">THE REAL</span> WORLD.</h2></div><p class="heading-aside">Three chapters across financial technology, legacy modernization and commerce.</p></div>
+    <article class="study" *ngFor="let study of studies; let i = index" [attr.data-study]="study.number">
+      <div class="study-topline"><span>CASE FILE / {{study.number}}</span><span>{{study.period}}</span></div>
+      <div class="study-layout" [class.reverse]="i === 1">
+        <div class="study-visual" [attr.data-accent]="study.accent">
+          <div class="visual-grid"></div><div class="visual-index">{{study.number}}<span>/03</span></div>
+          <div class="visual-title">{{study.title}}</div>
+          <div class="visual-diagram" aria-hidden="true">
+            <span class="diagram-node node-a">{{i === 0 ? 'CLS' : i === 1 ? 'OFBIZ' : 'PRODUCT'}}</span>
+            <span class="diagram-line"></span><span class="diagram-node node-b">{{i === 0 ? 'IPA' : i === 1 ? 'SPRING' : 'ORDERS'}}</span>
+            <span class="diagram-line short"></span><span class="diagram-node node-c">{{i === 0 ? 'FINACLE' : i === 1 ? 'GENAI' : 'DELIVERY'}}</span>
+          </div>
+          <div class="visual-foot">{{study.detail}}</div>
+        </div>
+        <div class="study-copy">
+          <p class="micro-label">{{study.category}}</p><h3>{{study.title}}</h3>
+          <p class="study-summary">{{study.summary}}</p>
+          <div class="contribution"><span>MY CONTRIBUTION</span><p>{{study.contribution}}</p></div>
+          <div class="stack-list"><span>TECHNOLOGY</span><div><b *ngFor="let tech of study.stack">{{tech}}</b></div></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="about" class="about-section section-wrap">
+    <div class="section-kicker" data-reveal><span>02 / THE ENGINEER</span><span>ABOUT & CAPABILITIES</span></div>
+    <div class="about-grid">
+      <h2 data-reveal>CURIOUS<br>BY <em>DEFAULT.</em></h2>
+      <div class="about-copy" data-reveal>
+        <p>My work sits at the intersection of backend engineering and usable interfaces. I enjoy untangling legacy workflows, shaping APIs, and building full-stack features that help teams do meaningful work.</p>
+        <p>From modernizing Apache OFBiz modules to building loan automation workflows, I approach software with a focus on maintainability, validation, security and the people using it.</p>
+        <div class="education-note"><span>EDUCATION</span><strong>B.E. · Computer Science & Engineering</strong><small>Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad · CGPA 8.06</small></div>
+      </div>
+    </div>
+    <div class="skills-list" data-reveal>
+      <div class="skill-row" *ngFor="let group of skillGroups"><span>{{group.label}}</span><p>{{group.items}}</p><b>↗</b></div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience-section section-wrap">
+    <div class="section-kicker" data-reveal><span>03 / EXPERIENCE</span><span>THE TIMELINE</span></div>
+    <h2 data-reveal>WHERE THE<br><span class="outline">WORK</span> HAPPENS.</h2>
+    <div class="timeline">
+      <article class="timeline-row" *ngFor="let item of timeline; let i = index" data-reveal>
+        <span class="timeline-date">{{item.date}}</span><div class="timeline-marker">{{'0' + (i + 1)}}</div>
+        <div><h3>{{item.role}}</h3><strong>{{item.company}}</strong><p>{{item.note}}</p></div>
+      </article>
+    </div>
+    <div class="recognition" data-reveal><span>RECOGNITION</span><div><b>SUPER ROOKIE AWARD</b><small>DBS · Q2 2024</small></div><div><b>BEST PERFORMER AWARD</b><small>DBS · 2025</small></div><div><b>PROMOTED TO ANALYST</b><small>WITHIN 1 YEAR</small></div><div><b>NPTEL CERTIFIED</b><small>PYTHON FOR DATA SCIENCE · 71%</small></div></div>
+  </section>
+
+  <section class="collab-section">
+    <div class="collab-inner">
+      <div class="collab-kicker"><span>04 / NEXT CHAPTER</span><span>OPEN TO GOOD WORK</span></div>
+      <p class="collab-overline">HAVE A GOOD QUESTION?</p>
+      <h2>LET'S MAKE<br><em>IT MATTER.</em></h2>
+      <div class="pull-art" aria-hidden="true">
+        <svg class="strings" viewBox="0 0 700 300" fill="none">
+          <path class="pull-string" d="M90 252 C180 190 250 145 385 115 S550 65 620 72"/>
+          <path class="pull-string" d="M90 252 C190 220 285 170 390 128 S550 90 620 72"/>
+          <path class="pull-string" d="M90 252 C185 245 275 195 400 145 S550 112 620 72"/>
+          <path class="pull-string" d="M90 252 C180 260 300 220 405 160 S560 130 620 72"/>
+        </svg>
+        <svg class="pull-hand" viewBox="0 0 190 190" fill="none">
+          <path d="M45 150c-9-12-15-25-18-38-2-8 7-13 13-6l14 17-13-43c-3-10 10-15 15-5l16 31-9-48c-2-11 13-14 17-3l11 42 2-38c1-12 17-11 17 1l-1 49 12-23c6-11 20-4 15 7l-16 41c-6 16-16 27-32 34-18 8-34-3-43-18z" fill="#171715" stroke="#171715" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M47 144c15 4 27 1 36-8M69 107l11 21M95 105l7 22M119 119l-5 13" stroke="#EAE8E2" stroke-width="2" stroke-linecap="round"/>
+          <path d="M27 113l-9-10M48 160l-3 10" stroke="#171715" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <button class="collab-button" (click)="openContact()" (pointerenter)="buttonHover($event, true)" (pointerleave)="buttonHover($event, false)">
+        <span>LET'S COLLABORATE</span><b>↗</b><i></i>
+      </button>
+      <p class="collab-note">A good collaboration starts with a conversation.<br>Tell me what you're thinking.</p>
+    </div>
+  </section>
+
+  <footer class="footer section-wrap">
+    <a class="wordmark">
+  RG
+</a><span>DESIGNED TO BE EXPLORED.</span><span>© 2026 · REVANTH SAI GARIGABOINA</span><a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <button class="torch-toggle" type="button" (click)="$event.stopPropagation(); toggleTorch()" [attr.aria-pressed]="torchEnabled && !pageRevealed" aria-label="Toggle flashlight reveal" [disabled]="pageRevealed">
+    <span class="torch-icon">◉</span>{{pageRevealed ? 'PAGE REVEALED' : (torchEnabled ? 'TORCH ON' : 'TORCH OFF')}}
+  </button>
+
+  <div class="contact-backdrop" *ngIf="contactOpen" (click)="closeContact()" role="presentation">
+    <section #contactDialog class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-title" (click)="$event.stopPropagation()">
+      <button class="dialog-close" (click)="closeContact()" aria-label="Close contact panel">×</button>
+      <p class="micro-label">LET'S START SOMETHING GOOD</p><h2 id="contact-title">YOUR MOVE.</h2>
+      <p class="dialog-intro">Have a role, a project, or an interesting problem? Reach out directly.</p>
+      <a class="contact-option" [href]="'mailto:' + email" data-first-focus><span>EMAIL</span><b>{{email}}</b><i>↗</i></a>
+      <a class="contact-option" [href]="'tel:' + phone.replaceAll(' ', '')"><span>PHONE</span><b>{{phone}}</b><i>↗</i></a>
+      <a class="contact-option" *ngIf="linkedinUrl" [href]="linkedinUrl" target="_blank" rel="noreferrer"><span>LINKEDIN</span><b>OPEN PROFILE</b><i>↗</i></a>
+      <a class="start-project" [href]="startProjectHref">START A PROJECT ↗</a>
+      <small>Connect professionally on LinkedIn or reach out directly by email or phone.</small>
+    </section>
+  </div>
+</main>
